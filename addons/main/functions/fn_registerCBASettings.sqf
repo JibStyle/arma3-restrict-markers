@@ -1,6 +1,6 @@
 // Register CBA settings
 [
-    "JIB_RM_enableEventHandlers",
+    "jibrm_main_enableEventHandlers",
     "CHECKBOX",
     [
         "Mod enabled",
@@ -13,7 +13,7 @@
     false
 ] call CBA_fnc_addSetting;
 [
-    "JIB_RM_restrictBriefing", // Global variable name
+    "jibrm_main_restrictBriefing", // Global variable name
     "CHECKBOX",                // Type
     [
         "Restrict markers during briefing",
@@ -26,7 +26,7 @@
     false                      // Need mission restart
 ] call CBA_fnc_addSetting;
 [
-    "JIB_RM_restrictMission",
+    "jibrm_main_restrictMission",
     "CHECKBOX",
     [
         "Restrict markers during mission",
@@ -39,11 +39,11 @@
     false
 ] call CBA_fnc_addSetting;
 [
-    "JIB_RM_shareDistance",
+    "jibrm_main_shareDistance",
     "SLIDER",
     [
         "Distance to share markers",
-        "Max distance to share markers to nearby players (default: 7)."
+        "Max distance to share markers to nearby players."
     ],
     "Restrict Markers",
     [0, 30, 7, 1],

@@ -1,8 +1,8 @@
 params ["_marker", "_channelNumber", "_owner", "_local"];
-systemChat format [
-    "Marker: %1, channel: %2, owner: %3, local: %4",
-    _marker, _channelNumber, _owner, _local
-];
+// systemChat format [
+//     "Marker: %1, channel: %2, owner: %3, local: %4",
+//     _marker, _channelNumber, _owner, _local
+// ];
 
 if (
     _marker find "_USER_DEFINED" == -1 // Scripted marker
@@ -11,12 +11,12 @@ if (
 
 if (
     [
-        JIB_RM_phase,
-        JIB_RM_restrictBriefing,
-        JIB_RM_restrictMission,
+        jibrm_main_phase,
+        jibrm_main_restrictBriefing,
+        jibrm_main_restrictMission,
         player distance _owner,
-        JIB_RM_shareDistance
-    ] call JIB_RM_fnc_shareMarker
+        jibrm_main_shareDistance
+    ] call jibrm_main_fnc_shareMarker
 ) then {
     // Schedule to fix crash
     [_marker, _owner] spawn {
@@ -36,8 +36,8 @@ if (
         deleteMarkerLocal _marker; // Must be scheduled
 
         _localMarker = createMarkerLocal [
-            // format ["%1 JIB_RM %2", _marker, getPlayerID player],
-            format ["JIB_RM %1", _marker],
+            // format ["%1 jibrm_main %2", _marker, getPlayerID player],
+            format ["jibrm_main %1", _marker],
             _markerPos,
             _markerChannel,
             _owner

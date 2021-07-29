@@ -1,7 +1,7 @@
 class CfgFunctions {
-    class JIB_RM {
-        class Misc {
-            file = "main\functions\Misc";
+    class jibrm_main {
+        class main {
+            file = "main\functions";
             requiredAddons[] = {"cba_settings"};
 
             class registerCBASettings {
