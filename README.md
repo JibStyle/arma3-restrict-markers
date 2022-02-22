@@ -1,37 +1,26 @@
 # Restrict Markers
 
-Arma 3 has a lot of great features, but the vanilla map markers in multiplayer are not very realistic. When you mark something on a paper map, it shouldn't magically appear for everyone even if they are hundreds of meters away from you. This is especially bad in historic time periods like WW2, Vietnam, Cold War, etc. It is more realistic to mark things on your own map, but share the information to others verbally over the radio or by physically visiting them. This simple mod solves that problem.
+This simple mod restricts map markers to only share to other players if they are nearby. Players can no longer rely on magically shared markers to communicate positions on-the-fly. Instead, detailed mission planning is encouraged, as players must huddle around to share map markers. In the field, effective use of verbal communication is emphasized. You can't always rely on having a high tech digital networked interactive map, and this mod makes the map behave more like a basic paper map.
 
-Restrict Markers makes multiplayer map markers more realistic. You can mark things as needed on your own map, but those markers by default stay local to you. The only way to share markers to other players is via proximity (within 7 meters by default). This encourages gameplay where you stand next to someone and look at the map together during mission planning. Situations in the heat of battle are no longer possible where someone says over the radio "Contact! Marking enemies on the map, see my marker!". Instead, you need to use pre-designated reference points and verbal communication.
+## Features
+
+- Player created markers are local to your own map by default.
+- Markers automatically share to other players within 7 meters.
+- Zeus modules can optionally be used to toggle the mod on/off during mission.
+- Compatible with vanilla and ACE markers.
 
 ## Setup Instructions
 
-This mod needs to be installed on the server and the client using Zeus. The rest of the players do not need it. It has no dependencies on other mods. Thus, it is possible to invite fully vanilla guest players. It is compatible with other mods like ACE if desired. The features of this mod are opt-in, so just having the mod installed won't affect anything. You need to place a couple modules to activate the marker restriction. Also, you can dynamically toggle the feature on/off using the modules. For example, you could allow default marker sharing during briefing, but restrict markers while in the field, then allow default marker sharing again during debriefing.
-
-## How to Use
-
-### Zeus
-
-All you have to do is place two modules from the "Restrict Markers" category: "Initialize Marker Handling" and "Disable Sharing". This can be done at any time while the  mission is in progress. The "Enable Sharing" module can be used to restore the default behavior of markers.
-
-### 3den
-
-Setting up this mod in 3den is not recommended because it would create a dependency of the mission on this mod. As a result, all players would need to install the mod. However, if they do, then it will work. The setup is similar, place the modules "Initialize Marker Handling" and "Disable Sharing". Later in game, a Zeus can place modules "Disable Sharing" and "Enable Sharing" to toggle the feature if desired.
-
-### In Game
-
-While the marker restriction feature is enabled, when you create markers on your map, they will only propagate to other players within 7 meters from you. Note that you still need to create the markers on the appropriate channel (side, global, group, etc) for other players to receive them. If you create markers while no one else is around, they will be local to your own paper map. When you delete markers, the same applies -- they will only be deleted for other players that are close enough.
+- This mod only needs to be installed on the server.
+- If using the Zeus modules, then the Zeus must have the mod too.
+- No dependencies on other mods.
 
 ## Developer Notes
 
-The default max sharing distance is 7 meters. To modify, change the variable `jibrm_restrictmarkers_shareDistance` to the desired number of meters, and publish it to all clients with `publicVariable`. I may add another module later to make this more user friendly if there is demand for that.
+The variable `jibrm_restrictmarkers_shareEnabled` can be modified to toggle the mod during mission (same as what the Zeus modules do). The variable `jibrm_restrictmarkers_shareDistance` can be modified to change the share distance (default is 7 meters). NOTE: Be sure to broadcast the variables to all clients for them to take effect!
 
 ## Troubleshooting
 
-### Modules don't show up in Zeus
+### Markers don't show up for other players even when they are nearby?
 
-Vanilla Zeus doesn't automatically load modules from mods. To explicitly load the modules, add an init.sqf file to your mission with the following code:
-
-```
-activateAddons ["jibrm_restrictmarkers"];
-```
+Ensure you select the correct channel (group, side, etc) when creating the marker, as channel restrictions still apply.

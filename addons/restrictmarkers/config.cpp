@@ -16,9 +16,16 @@ class CfgFunctions {
     class jibrm_restrictmarkers {
         class jibrm_restrictmarkers {
             file = "x\jibrm\addons\restrictmarkers\functions";
-            class registerEH { recompile = 1; };
-            class disableSharing { recompile = 1; };
-            class enableSharing { recompile = 1; };
+            class registerEH {
+                recompile = 1;
+                postInit = 1;
+            };
+            class disableSharing {
+                recompile = 1;
+            };
+            class enableSharing {
+                recompile = 1;
+            };
         };
     };
 };
@@ -33,13 +40,6 @@ class CfgFactionClasses {
 class CfgVehicles
 {
     class Module_F;
-    class jibrm_restrictmarkers_registerEH: Module_F {
-        scope=2;
-        scopeCurator=2;
-        category = "jibrm_restrictmarkers";
-        displayName = "Initialize Marker Handling";
-        function = "jibrm_restrictmarkers_fnc_registerEH";
-    };
     class jibrm_restrictmarkers_disableSharing: Module_F {
         scope=2;
         scopeCurator=2;

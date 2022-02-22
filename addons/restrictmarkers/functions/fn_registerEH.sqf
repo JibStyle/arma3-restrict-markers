@@ -1,22 +1,12 @@
-params ["_logic", "_units", "_isActivated"];
-if (!_isActivated) exitWith {};
+// Register event handlers on all clients
 if (!isServer) exitWith {};
-if (not isNil "jibrm_restrictmarkers_didRegister") exitWith {
-    deleteVehicle _logic;
-    false;
-};
-if (isNil "jibrm_restrictmarkers_shareEnabled") then {
-    jibrm_restrictmarkers_shareEnabled = true;
-    publicVariable "jibrm_restrictmarkers_shareEnabled";
-};
 #define DEFAULT_SHARE_DISTANCE 7
 #define LOCAL_TAG "jibrm_restrictmarkers_local"
 
 [[], {
     if (!hasInterface) exitWith {};
-    if (isNil "jibrm_markers_shareDistance") then {
-        jibrm_markers_shareDistance = DEFAULT_SHARE_DISTANCE;
-    };
+    jibrm_restrictmarkers_shareEnabled = false;
+    jibrm_restrictmarkers_shareDistance = DEFAULT_SHARE_DISTANCE;
     addMissionEventHandler [
         "MarkerCreated",
         {
@@ -42,7 +32,8 @@ if (isNil "jibrm_restrictmarkers_shareEnabled") then {
 
             if (
                 alive player
-                    && player distance _owner <= jibrm_markers_shareDistance
+                    && (player distance _owner
+                        <= jibrm_restrictmarkers_shareDistance)
             ) then {
                 // Schedule to fix crash
                 [_marker, _owner] spawn {
@@ -57,6 +48,7 @@ if (isNil "jibrm_restrictmarkers_shareEnabled") then {
                     private _markerDir = markerDir _marker;
                     private _markerPolyline = markerPolyline _marker;
                     private _markerPos = markerPos _marker;
+                    private _markerSize = markerSize _marker;
                     private _markerText = markerText _marker;
                     private _markerType = markerType _marker;
                     deleteMarkerLocal _marker; // Must be scheduled
@@ -78,6 +70,7 @@ if (isNil "jibrm_restrictmarkers_shareEnabled") then {
                         _localMarker setMarkerPolylineLocal _markerPolyline;
                     };
                     _localMarker setMarkerDirLocal _markerDir;
+                    _localMarker setMarkerSizeLocal _markerSize;
                     _localMarker setMarkerTextLocal _markerText;
                     // _localMarker setMarkerTextLocal format [
                     //     "LOCAL %1", _markerText
@@ -113,7 +106,7 @@ if (isNil "jibrm_restrictmarkers_shareEnabled") then {
                             || (alive player
                                 && (
                                     player distance _owner
-                                        <= jibrm_markers_shareDistance))
+                                        <= jibrm_restrictmarkers_shareDistance))
                     ) then {
                         private _marker =
                             format ["%1 %2", _markerBase, clientOwner];
@@ -124,7 +117,3 @@ if (isNil "jibrm_restrictmarkers_shareEnabled") then {
         }
     ];
 }] remoteExec ["spawn", 0, true];
-
-jibrm_restrictmarkers_didRegister = true;
-deleteVehicle _logic;
-true;
