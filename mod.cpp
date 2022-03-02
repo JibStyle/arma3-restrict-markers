@@ -3,3 +3,7 @@ author = "JibStyle";
 overview = "Map markers only share to nearby players.";
 tooltip = "Restrict Markers";
 tooltipOwned = "Restrict Markers - Owned";
+picture = "Data\Picture.paa";
+logo = "Data\LogoRed.paa";
+logoOver = "Data\LogoBlack.paa";
+logoSmall = "Data\LogoSmallRed.paa";
