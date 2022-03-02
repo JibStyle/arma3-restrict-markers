@@ -1,5 +1,7 @@
 # Restrict Markers
 
+![Bad map markers](/Data/Picture.png)
+
 This simple mod restricts map markers to only share to other players if they are nearby. Players can no longer rely on magically shared markers to communicate positions on-the-fly. Instead, detailed mission planning is encouraged, as players must huddle around to share map markers. In the field, effective use of verbal communication is emphasized. You can't always rely on having a high tech digital networked interactive map, and this mod makes the map behave more like a basic paper map.
 
 ## Features
