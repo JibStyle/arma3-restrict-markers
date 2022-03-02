@@ -6,18 +6,17 @@ This simple mod restricts map markers to only share to other players if they are
 
 - Player created markers are local to your own map by default.
 - Markers automatically share to other players within 7 meters.
-- Zeus modules can optionally be used to toggle the mod on/off during mission.
+- Optional Zeus modules to toggle the mod on/off during mission.
 - Compatible with vanilla and ACE markers.
 
 ## Setup Instructions
 
-- This mod only needs to be installed on the server.
-- If using the Zeus modules, then the Zeus must have the mod too.
+- Server side mod, not required on clients.
 - No dependencies on other mods.
 
 ## Developer Notes
 
-The variable `jibrm_restrictmarkers_shareEnabled` can be modified to toggle the mod during mission (same as what the Zeus modules do). The variable `jibrm_restrictmarkers_shareDistance` can be modified to change the share distance (default is 7 meters). NOTE: Be sure to broadcast the variables to all clients for them to take effect!
+Variable `jibrm_restrictmarkers_shareEnabled` toggles the mod during mission (same as what the Zeus modules do). The variable `jibrm_restrictmarkers_shareDistance` changes the share distance (default 7 meters). NOTE: Must broadcast the variables to all clients!
 
 ## Troubleshooting
 
