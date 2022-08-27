@@ -1,29 +1,28 @@
 class CfgPatches {
-    class jibrm_restrictmarkers {
+    class jib_restrictmarkers {
         name = "Restrict Markers";
         author = "JibStyle";
         requiredVersion = 1.60;
         requiredAddons[] = {"A3_Modules_F"};
         units[] = {
-            "jibrm_restrictmarkers_registerEH",
-            "jibrm_restrictmarkers_disableSharing",
-            "jibrm_restrictmarkers_enableSharing",
+            "jib_restrictmarkers_disable",
+            "jib_restrictmarkers_enable",
         };
     };
 };
 
 class CfgFunctions {
-    class jibrm_restrictmarkers {
-        class jibrm_restrictmarkers {
-            file = "x\jibrm\addons\restrictmarkers\functions";
-            class registerEH {
+    class jib_restrictmarkers {
+        class jib_restrictmarkers {
+            file = "x\jib_restrictmarkers\addons\restrictmarkers\functions";
+            class setup {
                 recompile = 1;
                 postInit = 1;
             };
-            class disableSharing {
+            class disable {
                 recompile = 1;
             };
-            class enableSharing {
+            class enable {
                 recompile = 1;
             };
         };
@@ -32,7 +31,7 @@ class CfgFunctions {
 
 class CfgFactionClasses {
     class NO_CATEGORY;
-    class jibrm_restrictmarkers: NO_CATEGORY {
+    class jib_restrictmarkers: NO_CATEGORY {
         displayName = "Restrict Markers";
     };
 };
@@ -40,18 +39,18 @@ class CfgFactionClasses {
 class CfgVehicles
 {
     class Module_F;
-    class jibrm_restrictmarkers_disableSharing: Module_F {
+    class jib_restrictmarkers_disable: Module_F {
         scope=2;
         scopeCurator=2;
-        category = "jibrm_restrictmarkers";
-        displayName = "Disable Sharing";
-        function = "jibrm_restrictmarkers_fnc_disableSharing";
+        category = "jib_restrictmarkers";
+        displayName = "Disable Restrict Markers";
+        function = "jib_restrictmarkers_fnc_disable";
     };
-    class jibrm_restrictmarkers_enableSharing: Module_F {
+    class jib_restrictmarkers_enable: Module_F {
         scope=2;
         scopeCurator=2;
-        category = "jibrm_restrictmarkers";
-        displayName = "Enable Sharing";
-        function = "jibrm_restrictmarkers_fnc_enableSharing";
+        category = "jib_restrictmarkers";
+        displayName = "Enable Restrict Markers";
+        function = "jib_restrictmarkers_fnc_enable";
     };
 };

@@ -23,7 +23,7 @@ This simple mod restricts map markers to only share to other players if they are
 
 ## Developer Notes
 
-Variable `jibrm_restrictmarkers_shareEnabled` toggles the mod during mission (same as what the Zeus modules do). The variable `jibrm_restrictmarkers_shareDistance` changes the share distance (default 7 meters). NOTE: Must broadcast the variables to all clients!
+Variable `jib_restrictmarkers_enabled` toggles the mod during mission (same as what the Zeus modules do). The variable `jib_restrictmarkers_shareDistance` changes the share distance (default 7 meters). NOTE: Must broadcast the variables to all clients!
 
 ## Troubleshooting
 

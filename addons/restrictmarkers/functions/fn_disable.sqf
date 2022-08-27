@@ -1,7 +1,7 @@
 params ["_logic", "_units", "_isActivated"];
 if (!_isActivated) exitWith {};
 if (!isServer) exitWith {};
-jibrm_restrictmarkers_shareEnabled = true;
-publicVariable "jibrm_restrictmarkers_shareEnabled";
+jib_restrictmarkers_enabled = false;
+publicVariable "jib_restrictmarkers_enabled";
 deleteVehicle _logic;
 true;
