@@ -3,3 +3,4 @@
 *.bikey
 *.biprivatekey
 *.bisign
+/publish/
