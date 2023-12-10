@@ -1,0 +1,20 @@
+name = "Restrict Markers"
+author = "JibStyle"
+prefix = "jib_marker"
+mainprefix = "x"
+
+[files]
+include = [
+    "mod.cpp",
+    "meta.cpp",
+    "README.md",
+    "LICENSE.md",
+    "Data/Picture.paa",
+    "Data/LogoBlack.paa",
+    "Data/LogoRed.paa",
+    "Data/LogoSmallRed.paa",
+]
+
+[version]
+git_hash = 0
+

@@ -14,7 +14,7 @@ class CfgPatches {
 class CfgFunctions {
     class jib_marker {
         class jib_marker {
-            file = "x\jib_marker\addons\marker";
+            file = "x\jib_marker\addons\main";
             class marker { preInit = 1; recompile = 1; };
         };
     };

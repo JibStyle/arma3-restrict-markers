@@ -4,3 +4,6 @@
 *.biprivatekey
 *.bisign
 /publish/
+.hemttout
+hemtt
+hemtt.exe
