@@ -21,6 +21,11 @@ This simple mod restricts map markers to only share to other players if they are
 - Demo: https://youtu.be/HXME_IodBD8
 - Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=2560276469
 
+## Building and contribution
+
+This mod uses the [HEMTT Tool](https://brettmayson.github.io/HEMTT/index.html) for builds and releases.
+To build a development/test version follow the [HEMTT installation instructions](https://brettmayson.github.io/HEMTT/installation.html) and run `build.bat`.
+
 ## Troubleshooting
 
 ### Markers don't show up for other players even when they are nearby?
